@@ -1,0 +1,5 @@
+production: {{ with $secret := vault "secret/example/production" }}
+  {{range $secret.Data  }}
+    {{.Key}}: {{.Value}}
+  {{end}}
+{{end}}
